@@ -515,6 +515,7 @@ class AutoSizeTextField extends StatefulWidget {
 
 class _AutoSizeTextFieldState extends State<AutoSizeTextField> {
   late double _textSpanWidth;
+  late double calculatedFontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -535,6 +536,8 @@ class _AutoSizeTextFieldState extends State<AutoSizeTextField> {
       var result = _calculateFontSize(size, style, maxLines);
       var fontSize = result[0] as double;
       var textFits = result[1] as bool;
+      
+      this.calculatedFontSize = fontSize;
 
       Widget textField;
       textField = _buildTextField(fontSize, style, maxLines);
